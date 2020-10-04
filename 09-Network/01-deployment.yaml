@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-   name: myfirstpod-deployment
+   name: myappdp
    labels:
-      app: myfirstdeployapp
+      app: myprodapp
 spec:
   template:
     metadata:
-        name: myfirstdeploypod
+        name: svcdeployapp # Pod name
         labels:
-          app: myfirstdeployapp
+          app: svcdeploy #db
     spec:
       containers:
-        - name: mynginxcontainer
-          image: nginx
+        - name: myapplication
+          image: nginx # mysql
   replicas: 2
   selector:
      matchLabels:
-         app: myfirstdeployapp
+         app: svcdeploy
 
 
 ## kubectl get pods
